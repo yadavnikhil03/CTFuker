@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "CTFucker",
+  "version": "2.0",
+  "icons": {
+    "32": "icons/icon32.ico",
+    "16": "icons/icon32.ico",
+    "24": "icons/icon32.ico",
+    "48": "icons/icon32.ico",
+    "128": "icons/icon32.ico"
+  },
+  "permissions": ["storage", "activeTab", "scripting", "tabs", "clipboardRead", "clipboardWrite"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "CTFucker",
+    "default_icon": {
+      "32": "icons/icon32.ico",
+      "16": "icons/icon32.ico",
+      "24": "icons/icon32.ico",
+      "48": "icons/icon32.ico",
+      "128": "icons/icon32.ico"
+    },
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/main.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "content/main.js"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

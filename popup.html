@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CTFucker</title>
+    <style>
+      :root {
+        --bg: #111827;
+        --card: #1f2937;
+        --text: #f9fafb;
+        --muted: #d1d5db;
+        --accent: #22c55e;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        width: 320px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(180deg, #0f172a, #111827);
+        color: var(--text);
+      }
+
+      .wrap {
+        padding: 14px;
+      }
+
+      .topbar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 0;
+        padding: 16px 12px 18px;
+        border-radius: 10px;
+        border: 1px solid #374151;
+        background: linear-gradient(180deg, #1f2937, #172133);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .title {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        padding: 2px 8px;
+        border-radius: 999px;
+        border: 1px solid #4b5563;
+        background: #374151;
+        color: #e5e7eb;
+        font-size: 13px;
+      }
+
+      .chip.on {
+        border-color: #15803d;
+        background: #14532d;
+        color: #bbf7d0;
+      }
+
+      .chip.off {
+        border-color: #991b1b;
+        background: #3f1d1d;
+        color: #fecaca;
+      }
+
+      .toggle-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+      }
+
+      .switch {
+        position: relative;
+        display: inline-block;
+        width: 108px;
+        height: 52px;
+      }
+
+      .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(180deg, #3f4756, #303847);
+        border: 1px solid #4b5563;
+        box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.14), 0 8px 18px rgba(0, 0, 0, 0.28);
+        transition: background 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+        border-radius: 999px;
+      }
+
+      .slider-knob {
+        position: absolute;
+        left: 4px;
+        top: 4px;
+        width: 44px;
+        height: 44px;
+        border-radius: 999px;
+        background: linear-gradient(180deg, #ffffff, #e5e7eb);
+        border: 1px solid rgba(17, 24, 39, 0.22);
+        box-shadow: 0 5px 14px rgba(0, 0, 0, 0.35);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.18s ease;
+      }
+
+      input:checked + .slider {
+        background: linear-gradient(180deg, #16a34a, #15803d);
+        border-color: #166534;
+        box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.18), 0 10px 20px rgba(20, 83, 45, 0.35);
+      }
+
+      input:checked + .slider .slider-knob {
+        transform: translateX(56px);
+      }
+
+      .slider-text {
+        color: #111827;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+        user-select: none;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="topbar">
+        <div class="brand">
+          <h1 class="title">CTFuker</h1>
+          <span id="status-chip" class="chip">Loading</span>
+        </div>
+        <div class="toggle-wrap">
+          <label class="switch" aria-label="Toggle CTFuker">
+            <input id="enable-toggle" type="checkbox" />
+            <span class="slider">
+              <span class="slider-knob"><span id="toggle-text" class="slider-text">OFF</span></span>
+            </span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>
