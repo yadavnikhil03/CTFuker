@@ -35,7 +35,8 @@
   "web_accessible_resources": [
     {
       "resources": [
-        "content/main.js"
+        "content/main.js",
+        "content/inject.js"
       ],
       "matches": ["<all_urls>"]
     }
